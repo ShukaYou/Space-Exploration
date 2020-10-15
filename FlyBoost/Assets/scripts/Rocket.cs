@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-
+    public AudioSource audiosource;
+   public AudioClip rocket;
     Rigidbody rigidBody;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,11 @@ public class Rocket : MonoBehaviour
         {
             print("Time to liftoff");
             rigidBody.AddRelativeForce(Vector3.up);
+            audiosource.PlayOneShot(rocket, 0.4F);
+        }
+        else
+        {
+            audiosource.Stop();
         }
 
         if (Input.GetKey(KeyCode.D))
