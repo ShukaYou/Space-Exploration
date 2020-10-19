@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    public float rcsThrust = 100f;
+    [SerializeField] float rcsThrust = 100f;
+    [SerializeField] float MainThrust = 100f;
+    [SerializeField] public GameObject Player;
+
     public AudioSource audiosource;
     public AudioClip rocket;
     Rigidbody rigidBody;
+    
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +30,7 @@ public class Rocket : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             print("Time to liftoff");
-            rigidBody.AddRelativeForce(Vector3.up);
+            rigidBody.AddRelativeForce(Vector3.up * MainThrust);
             audiosource.PlayOneShot(rocket, 0.4F);
         }
         else
@@ -34,7 +39,7 @@ public class Rocket : MonoBehaviour
         }
     }
 
-        void Rotate()
+    void Rotate()
         {
         
         rigidBody.freezeRotation = true; //take manual control of rotation   
@@ -53,6 +58,30 @@ public class Rocket : MonoBehaviour
         }
         rigidBody.freezeRotation = false; //resume physics control of rotation
         }
-    
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+      switch (collision.gameObject.tag)
+        {
+            case "Friendly":
+                print("All Gucci BrO");
+                break;
+            case "Fuel":
+                print("Drinnk UP boys");
+                Destroy(collision.gameObject);
+                
+                break;
+            default:
+                print("You have DiEd, RIP");
+                //Destroy(gameObject);
+                break;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Fuel")
+        {
+            Destroy(other.gameObject); 
+        }
+    }
 }
