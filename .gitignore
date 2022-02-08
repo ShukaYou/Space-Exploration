@@ -1,1 +1,7 @@
 FlyBoost/Library/
+*.dll
+*.config
+*.browser
+*.map
+*.xml
+FlyBoost/BuildTests/
