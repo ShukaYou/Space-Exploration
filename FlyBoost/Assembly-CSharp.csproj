@@ -43,6 +43,7 @@
      <Compile Include="Assets\scripts\CollisionHandler.cs" />
      <Compile Include="Assets\scripts\Oscillator.cs" />
      <Compile Include="Assets\scripts\Rocket.cs" />
+     <Compile Include="Assets\scripts\quit.cs" />
      <None Include="Assets\Fantasy Forest Environment Free Sample\StandardNoCulling.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

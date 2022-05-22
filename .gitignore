@@ -5,3 +5,4 @@ FlyBoost/Library/
 *.map
 *.xml
 FlyBoost/BuildTests/
+FlyBoost/Temp/UnityLockfile
